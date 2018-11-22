@@ -10,7 +10,7 @@ Core AMAC ROS Metapackages. Should defintely have sudo access to get everything 
 `git clone https://github.com/AMABerkeley/usb_cam.git`\
 `git clone https://github.com/AMABerkeley/ouster_lidar.git`\
 `cd ..`\
-`catkin_make`\
+`catkin_make`
 
 ## Usage (Docker)
 
@@ -43,7 +43,7 @@ Then startup all sensors by: `roslaunch amac_bringup drive.launch os1_hostname:=
 
 Not enough bandwidth for three cameras hooked up on one USB-hub plugged into one USB port. Simply run:
 `sudo rmmod uvcvideo`\
-`sudo modprobe uvcvideo quirks=128`\
+`sudo modprobe uvcvideo quirks=128`
 
 OpenCV 2 is needed for usb-cam launch. This is to set size of capture image to smaller than opencv 3 allows.
 
