@@ -2,8 +2,8 @@
 Core AMAC ROS Metapackages. Should defintely have sudo access to get everything working.
 
 # Setup
-`mkdir -p catkin_ws/src`
-`cd catkin_ws/src`
+`mkdir -p catkin_ws/src\`
+`cd catkin_ws/src`\
 `catkin_init_workspace`
 `git clone https://github.com/AMABerkeley/amac_core.git`
 `git clone https://github.com/AMABerkeley/inertial_sense_ros.git`
