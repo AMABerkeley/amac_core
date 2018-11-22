@@ -2,13 +2,13 @@
 Core AMAC ROS Metapackages. Should defintely have sudo access to get everything working.
 
 # Setup
-`mkdir -p catkin_ws/src\`
+`mkdir -p catkin_ws/src`\
 `cd catkin_ws/src`\
-`catkin_init_workspace`
-`git clone https://github.com/AMABerkeley/amac_core.git`
-`git clone https://github.com/AMABerkeley/inertial_sense_ros.git`
-`git clone https://github.com/AMABerkeley/usb_cam.git`
-`git clone https://github.com/AMABerkeley/ouster_lidar.git`
+`catkin_init_workspace`\
+`git clone https://github.com/AMABerkeley/amac_core.git`\
+`git clone https://github.com/AMABerkeley/inertial_sense_ros.git`\
+`git clone https://github.com/AMABerkeley/usb_cam.git`\
+`git clone https://github.com/AMABerkeley/ouster_lidar.git`\
 `cd ..`
 `catkin_make`
 
@@ -42,8 +42,8 @@ Then startup all sensors by: `roslaunch amac_bringup drive.launch os1_hostname:=
 ## Common Problems
 
 Not enough bandwidth for three cameras hooked up on one USB-hub plugged into one USB port. Simply run:
-`sudo rmmod uvcvideo`
-`sudo modprobe uvcvideo quirks=128`
+`sudo rmmod uvcvideo`\
+`sudo modprobe uvcvideo quirks=128`\
 
 OpenCV 2 is needed for usb-cam launch. This is to set size of capture image to smaller than opencv 3 allows.
 
