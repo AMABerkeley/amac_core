@@ -9,8 +9,8 @@ Core AMAC ROS Metapackages. Should defintely have sudo access to get everything 
 `git clone https://github.com/AMABerkeley/inertial_sense_ros.git`\
 `git clone https://github.com/AMABerkeley/usb_cam.git`\
 `git clone https://github.com/AMABerkeley/ouster_lidar.git`\
-`cd ..`
-`catkin_make`
+`cd ..`\
+`catkin_make`\
 
 ## Usage (Docker)
 
