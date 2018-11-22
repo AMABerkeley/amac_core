@@ -1,6 +1,17 @@
 # amac_core
 Core AMAC ROS Metapackages. Should defintely have sudo access to get everything working.
 
+# Setup
+`mkdir -p catkin_ws/src`
+`cd catkin_ws/src`
+`catkin_init_workspace`
+`git clone https://github.com/AMABerkeley/amac_core.git`
+`git clone https://github.com/AMABerkeley/inertial_sense_ros.git`
+`git clone https://github.com/AMABerkeley/usb_cam.git`
+`git clone https://github.com/AMABerkeley/ouster_lidar.git`
+`cd ..`
+`catkin_make`
+
 ## Usage (Docker)
 
 Install [Docker Container Environment](https://docs.docker.com/install/) if you haven't already.
@@ -36,4 +47,4 @@ Not enough bandwidth for three cameras hooked up on one USB-hub plugged into one
 
 OpenCV 2 is needed for usb-cam launch. This is to set size of capture image to smaller than opencv 3 allows.
 
-Must upload arduino code that is here: in order for this to run. Future version will embed the compilation of arduino code within this package. 
+Must upload arduino code that is here: `https://github.com/AMABerkeley/amac_arduino` in order for this to run. Future version will embed the compilation of arduino code within this package. 
