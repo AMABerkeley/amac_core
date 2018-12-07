@@ -1,0 +1,61 @@
+<launch>
+
+
+
+  #Lidar 
+ 
+  <include
+   file="$(find ouster_ros_v)/launch/os1.launch"/>
+
+
+
+  #control_interface
+
+  <include
+   file="$(find amac_core)/launch/controller.launch"/>
+
+  #arduino
+
+
+
+
+  <include
+   file="$(find arduino_auto)/launch/arduino_enable.launch"/>
+
+
+
+
+  #INS
+
+
+  <include
+   file="$(find inertial_sense_ros)/launch/test_1.launch"/>
+
+
+
+
+  #cameras
+
+
+
+  <include
+   file="$(find usb_cam)/launch/usb_cam-test.launch"/>
+
+
+  #urdf
+<!-- 
+  <include
+   file="$(find AMAC_car_assy_urdf)/launch/display.launch"/> -->
+
+
+
+  #slam
+
+  <!--- <include
+   file="$(find hdl_graph_slam)/launch/hdl_graph_slam.launch"/> -->
+
+  <include
+   file="$(find lego_loam)/launch/run.launch"/>
+
+
+</launch>

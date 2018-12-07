@@ -14,10 +14,7 @@ gps=False
 
 def velocity_callback(msgs):
     global velocity
-    global gps
-    global steering_angle
     velocity = msgs.data
-    steering_angle = msgs.data
 
 def steering_callback(msgs):
     global steering_angle
@@ -29,7 +26,7 @@ def listener():
     # rospy.Subscriber("velocity", UInt16, velocity_control)
 
 
-    rospy.Subscriber("velocity", Float32, velocity_callback)
+    rospy.Subscriber("velocity_ms", Float32, velocity_callback)
     rospy.Subscriber("turning", Float32, steering_callback)
 
     # rospy.Subscriber("velocity_gps", UInt16,)
@@ -62,10 +59,10 @@ def car_control():
 
         rospy.loginfo("speed")
         rospy.loginfo(velocity)
-        pub_th.publish(velocity)
+        pub_speed.publish(velocity)
         rospy.loginfo("steering angle")
         rospy.loginfo(steering_angle)
-        pub_st.publish(steering_angle)
+        pub_st_ang.publish(steering_angle)
        
 
         rate.sleep()
