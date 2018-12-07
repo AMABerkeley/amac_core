@@ -1,0 +1,4 @@
+<launch>
+  <node pkg="amac_core" name="control_interface" type="control_interface.py">
+  </node>
+</launch>

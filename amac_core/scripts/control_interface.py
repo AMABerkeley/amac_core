@@ -42,6 +42,8 @@ def car_control():
 
     pub_th = rospy.Publisher('servo_th', UInt16, queue_size=10)
     pub_st = rospy.Publisher('servo_st', UInt16, queue_size=10)
+    pub_speed = rospy.Publisher('speed', Float32, queue_size=10)
+    pub_st_ang = rospy.Publisher('steering_angle', Float32, queue_size=10)
     rate = rospy.Rate(10) # 10hz
     while not rospy.is_shutdown():
         velocity_pwm = velocity * 30 + 1475
@@ -57,6 +59,15 @@ def car_control():
         rospy.loginfo("steering pwm")
         rospy.loginfo(int(round(steering_pwm)))
         pub_st.publish(int(round(steering_pwm)))
+
+        rospy.loginfo("speed")
+        rospy.loginfo(velocity)
+        pub_th.publish(velocity)
+        rospy.loginfo("steering angle")
+        rospy.loginfo(steering_angle)
+        pub_st.publish(steering_angle)
+       
+
         rate.sleep()
 
 
