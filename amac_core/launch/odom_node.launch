@@ -1,4 +1,0 @@
-<launch>
-<node pkg="amac_bringup" type="car_odom" name="car_odom" output="screen">
-  </node>
-</launch>

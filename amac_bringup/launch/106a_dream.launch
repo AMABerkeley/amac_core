@@ -8,11 +8,6 @@
    file="$(find ouster_ros_v)/launch/os1.launch"/>
 
 
-<!--   <node pkg="tf"
-      type="static_transform_publisher"
-      name="link1_broadcaster"
-      args="0.0 0.0 0.0 0.0 0.0 1.0 velodyne velodyne 100" />   -->
-
   #control_interface
 
   <include
@@ -20,8 +15,8 @@
 
   #car_odom
 
-  <include
-   file="$(find car_odom)/launch/car_wheel_odom.launch"/>
+<!--   <include
+   file="$(find car_odom)/launch/car_wheel_odom.launch"/> -->
 
   #arduino
 
@@ -33,7 +28,7 @@
 
   <include
    file="$(find inertial_sense_ros)/launch/test_1.launch"/>
-  
+
 
   #urdf
 
@@ -51,16 +46,22 @@
    file="$(find lego_loam)/launch/run.launch"/> -->
 
 
+
+  #slam
+
+   <include
+   file="$(find hdl_graph_slam)/launch/hdl_graph_slam.launch"/> 
+
  #gmapping
 
- <include
-   file="$(find gmapping)/test/basic_localization_stage.launch"/>
+<!--  <include
+   file="$(find gmapping)/test/basic_localization_stage.launch"/> -->
 
 #3d to 2d scan
 
- <include
+<!--  <include
    file="$(find pointcloud_to_laserscan)/launch/sample_node.launch"/>
-
+ -->
 
 
 </launch>
