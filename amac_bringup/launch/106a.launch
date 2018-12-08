@@ -32,7 +32,7 @@
 
 
   <include
-   file="$(find inertial_sense_ros)/launch/test_1.launch"/>
+   file="$(find inertial_sense)/launch/test.launch"/>
   
 
   #urdf

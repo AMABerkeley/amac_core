@@ -52,7 +52,7 @@ def car_control():
     pub_st_ang = rospy.Publisher('steering_angle', Float32, queue_size=10)
     rate = rospy.Rate(40) # 10hz
     while not rospy.is_shutdown():
-        velocity_pwm = velocity * 30 + 1475
+        velocity_pwm = velocity * 140 + 1475
         steering_pwm = steering_angle * 10 + 1450
 
 
