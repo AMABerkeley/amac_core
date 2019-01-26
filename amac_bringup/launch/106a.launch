@@ -44,7 +44,7 @@
   #urdf
 
   <include
-   file="$(find AMAC_car_assy_urdf)/launch/display.launch"/>
+   file="$(find amac_car_urdf)/launch/display.launch"/>
 
 # objr
 

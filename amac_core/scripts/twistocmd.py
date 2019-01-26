@@ -12,6 +12,8 @@ x_velocity_from_cmd_vel = 0.0
 y_velocity_from_cmd_vel = 0.0
 steering_from_cmd_vel = 0.0
 steering_ang_from_cmd_vel = 0.0
+
+
 	
 def callback(data): 
 	
@@ -21,8 +23,8 @@ def callback(data):
 	global steering_ang_from_cmd_vel
 	x_velocity_from_cmd_vel = data.linear.x
 	y_velocity_from_cmd_vel = data.linear.y
-	steering_from_cmd_vel = data.angular.z
-	steering_ang_from_cmd_vel = atan(steering_from_cmd_vel) * .26*180/pi
+	steering_from_cmd_vel = -data.angular.z
+	steering_ang_from_cmd_vel = atan(steering_from_cmd_vel) *180/pi
 
 
 def listener():
@@ -46,8 +48,10 @@ def convert():
 		rospy.loginfo("steering_ang_from_cmd_vel")
 		rospy.loginfo(steering_ang_from_cmd_vel)
 		turn_pub.publish(steering_ang_from_cmd_vel)
-
-		velocity_from_cmd_vel = sqrt(x_velocity_from_cmd_vel**2 + y_velocity_from_cmd_vel**2)
+		gain = 1
+		if x_velocity_from_cmd_vel < 0:
+			gain = -1
+		velocity_from_cmd_vel = gain*sqrt(x_velocity_from_cmd_vel**2 + y_velocity_from_cmd_vel**2)
 		rospy.loginfo("velocity_from_cmd_vel")
 		rospy.loginfo(velocity_from_cmd_vel)
 		vel_pub.publish(velocity_from_cmd_vel)

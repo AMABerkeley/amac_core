@@ -4,6 +4,7 @@ import rospy
 from std_msgs.msg import String
 from std_msgs.msg import UInt16
 from std_msgs.msg import Float32
+from ackermann_msgs.msg import AckermannDriveStamped
 
 global velocity
 global gps
@@ -36,6 +37,7 @@ def listener():
     rospy.Subscriber("velocity_ms", Float32, velocity_callback)
     rospy.Subscriber("turning", Float32, steering_callback)
     rospy.Subscriber("aux", UInt16, aux_callback)
+    
 
     # rospy.Subscriber("velocity_gps", UInt16,)
     #rospy.Subscriber("throttle", UInt16)
@@ -52,8 +54,12 @@ def car_control():
     pub_st_ang = rospy.Publisher('steering_angle', Float32, queue_size=10)
     rate = rospy.Rate(40) # 10hz
     while not rospy.is_shutdown():
-        if (velocity < 1.8):
+        if (abs(velocity) < 0.3):
+            gain = 150
+        elif (abs(velocity) < 1):
             gain = 140
+        elif (abs(velocity) <= 2):
+            gain = 40
         else:
             gain = 30
 
