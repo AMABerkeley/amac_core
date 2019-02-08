@@ -50,3 +50,6 @@ Not enough bandwidth for three cameras hooked up on one USB-hub plugged into one
 OpenCV 2 is needed for usb-cam launch. This is to set size of capture image to smaller than opencv 3 allows.
 
 Must upload arduino code that is here: `https://github.com/AMABerkeley/amac_arduino` in order for this to run. Future version will embed the compilation of arduino code within this package. 
+
+## TODO
+Add a doc-string or file explaining all topics that get published and all topics that can be subscribed to - generate a rosbag viewer
