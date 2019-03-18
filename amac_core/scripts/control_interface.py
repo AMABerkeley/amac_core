@@ -50,19 +50,26 @@ def car_control():
     pub_st = rospy.Publisher('servo_st', UInt16, queue_size=10)
     pub_speed = rospy.Publisher('speed', Float32, queue_size=10)
     pub_st_ang = rospy.Publisher('steering_angle', Float32, queue_size=10)
-    rate = rospy.Rate(40) # 10hz
+
+    rate = rospy.Rate(40)  # Publishes at 40 Hz, used at 10 Hz (limited by LIDAR)
     while not rospy.is_shutdown():
         if (velocity < 1.8):
+            # TODO: must be calibrated
             gain = 140
         else:
+            # TODO: must be calibrated
             gain = 30
 
+        # velocity PWM is centered around 1475, reference calibration excel spreadsheet.
         velocity_pwm = velocity * gain + 1475
+        # steering PWM is centered around 1450, reference calibration excel spreadsheet.
         steering_pwm = steering_angle * 10 + 1450
 
-
-        if gps==True:
-            velocity_pwm += gain*(velocity_gps - velocity)
+        # TODO: This will all be moved to the future AMAC drive by wire or control dir.
+        # We want dead reckoning control (with encoders) as well as a GPS mode
+        if gps == True:
+            velocity_pwm += gain * (velocity_gps - velocity)
+            
         if aux < 1500:
             rospy.loginfo("throttle pwm")
             rospy.loginfo(int(round(velocity_pwm)))
