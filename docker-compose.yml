@@ -1,0 +1,47 @@
+version : '3'
+# Sample Docker-compose file
+
+services: 
+
+  web_server: 
+    build: ./web
+    environment:
+    - NUM_CAMERAS=2
+    ports: 
+      - "8090:5000"
+    networks:
+      - cam_network
+      - redis_net
+    container_name: hostname
+
+  cam1:
+    build: ./camera
+    environment:
+    - CAMERA_ID=1
+    ports: 
+      - "8070:8070"
+    networks:
+      - cam_network
+
+  cam2:
+    build: ./camera
+    environment:
+    - CAMERA_ID=2
+    ports: 
+      - "8080:8080"
+    networks:
+      - cam_network
+
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes
+    networks:
+      - redis_net
+
+networks: 
+  cam_network:
+    driver : bridge
+  redis_net:
+    driver : bridge
